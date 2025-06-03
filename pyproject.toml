@@ -1,0 +1,393 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel", "Cython>=0.29.0", "numpy>=1.21.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "open3dreconstruction"
+version = "1.0.0"
+description = "Open3DReconstruction - Advanced Medical Imaging & AI Diagnostics Platform"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Nik Jois", email = "nikjois@llamasearch.ai"},
+]
+keywords = [
+    "medical-ai", "medical-imaging", "neural-rendering", "3d-reconstruction", 
+    "healthcare", "diagnostics", "radiology", "pathology", "medical-nerf",
+    "drug-discovery", "clinical-ai", "surgical-planning", "hipaa-compliant"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Healthcare Industry",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Scientific/Engineering :: Bio-Informatics",
+    "Topic :: Scientific/Engineering :: Image Processing",
+]
+
+dependencies = [
+    # Core scientific computing
+    "numpy>=1.21.0",
+    "scipy>=1.7.0",
+    "pandas>=1.3.0",
+    
+    # Medical imaging and DICOM
+    "pydicom>=2.4.0",
+    "nibabel>=5.0.0",
+    "SimpleITK>=2.3.0",
+    "medpy>=0.4.0",
+    "radiomics>=3.1.0",
+    "dicom2nifti>=2.4.0",
+    
+    # Computer vision and ML
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "pytorch-lightning>=2.0.0",
+    "opencv-python>=4.5.0",
+    "scikit-image>=0.19.0",
+    "scikit-learn>=1.0.0",
+    "albumentations>=1.3.0",
+    "monai>=1.3.0",
+    "torchio>=0.19.0",
+    
+    # 3D processing and visualization
+    "vtk>=9.2.0",
+    "pyvista>=0.37.0",
+    "open3d>=0.17.0",
+    "trimesh>=3.15.0",
+    "pymeshlab>=2022.2",
+    "mayavi>=4.8.0",
+    
+    # Neural rendering and 3D AI
+    "nerfstudio>=0.3.0",
+    "tiny-cuda-nn>=1.6",
+    "tcnn>=0.1.0",
+    "kaolin>=0.14.0",
+    "diff-gaussian-rasterization>=0.1.0",
+    "neural-field-tools>=0.2.0",
+    
+    # Medical AI and deep learning
+    "transformers>=4.30.0",
+    "diffusers>=0.21.0",
+    "timm>=0.9.0",
+    "segment-anything>=1.0",
+    "detectron2>=0.6",
+    "mmcv-full>=1.7.0",
+    "mmsegmentation>=1.1.0",
+    
+    # Bioinformatics and genomics
+    "biopython>=1.81",
+    "pysam>=0.21.0",
+    "scanpy>=1.9.0",
+    "anndata>=0.9.0",
+    "genomics-python>=2.0.0",
+    
+    # Drug discovery and molecular modeling
+    "rdkit>=2023.3.0",
+    "openmm>=8.0.0",
+    "mdtraj>=1.9.0",
+    "prody>=2.4.0",
+    "deepchem>=2.7.0",
+    "chembl-webresource-client>=0.10.0",
+    
+    # Web framework and medical APIs
+    "fastapi>=0.104.0",
+    "uvicorn[standard]>=0.24.0",
+    "pydantic>=2.0.0",
+    "httpx>=0.25.0",
+    "websockets>=11.0.0",
+    "python-multipart>=0.0.6",
+    
+    # Medical standards and interoperability
+    "fhir.resources>=7.0.0",
+    "pynetdicom>=2.0.0",
+    "hl7apy>=1.3.0",
+    "python-hl7>=0.3.0",
+    "dicomweb-client>=0.59.0",
+    
+    # OpenAI and medical AI agents
+    "openai>=1.3.0",
+    "langchain>=0.0.340",
+    "langchain-openai>=0.0.2",
+    "anthropic>=0.5.0",
+    "tiktoken>=0.5.0",
+    
+    # Medical data security and compliance
+    "cryptography>=41.0.0",
+    "pycryptodome>=3.19.0",
+    "hashlib-compat>=1.0.0",
+    "python-jose[cryptography]>=3.3.0",
+    
+    # Async and high-performance computing
+    "aiofiles>=23.0.0",
+    "asyncio-mqtt>=0.13.0",
+    "celery>=5.3.0",
+    "redis>=5.0.0",
+    "dask[complete]>=2023.1.0",
+    "ray[default]>=2.7.0",
+    
+    # Medical visualization and reporting
+    "matplotlib>=3.5.0",
+    "plotly>=5.15.0",
+    "dash>=2.14.0",
+    "streamlit>=1.28.0",
+    "gradio>=4.0.0",
+    "bokeh>=3.0.0",
+    
+    # Configuration and utilities
+    "hydra-core>=1.3.0",
+    "omegaconf>=2.3.0",
+    "typer>=0.9.0",
+    "rich>=13.0.0",
+    "tqdm>=4.64.0",
+    "loguru>=0.7.0",
+    
+    # Testing and medical validation
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+    "pytest-mock>=3.10.0",
+    "hypothesis>=6.75.0",
+    "pytest-benchmark>=4.0.0",
+    
+    # Performance and GPU optimization
+    "numba>=0.57.0",
+    "cupy-cuda12x>=12.0.0",
+    "tensorrt>=8.6.0",
+    "onnx>=1.14.0",
+    "onnxruntime-gpu>=1.16.0",
+    "triton>=2.1.0",
+    
+    # Medical data handling
+    "h5py>=3.7.0",
+    "zarr>=2.12.0",
+    "tables>=3.8.0",
+    "xarray>=2023.1.0",
+    "netcdf4>=1.6.0",
+    
+    # Statistical analysis for medical research
+    "statsmodels>=0.14.0",
+    "lifelines>=0.27.0",
+    "pingouin>=0.5.0",
+    "seaborn>=0.12.0",
+    
+    # Medical sensors and IoT
+    "pyserial>=3.5",
+    "bluetooth-python>=0.22",
+    "paho-mqtt>=1.6.0",
+    "grpcio>=1.59.0",
+    "protobuf>=4.24.0",
+]
+
+[project.optional-dependencies]
+medical = [
+    # Advanced medical imaging
+    "ants>=0.4.0",
+    "nipype>=1.8.0",
+    "nilearn>=0.10.0",
+    "dipy>=1.7.0",
+    "fury>=0.9.0",
+    
+    # Pathology and microscopy
+    "openslide-python>=1.3.0",
+    "histomicstk>=1.3.0",
+    "cucim>=23.8.0",
+    "slideio>=2.5.0",
+    
+    # Genomics and proteomics
+    "pybedtools>=0.9.0",
+    "pyvcf>=0.6.8",
+    "cyvcf2>=0.30.0",
+    "hail>=0.2.0",
+]
+
+clinical = [
+    # Clinical decision support
+    "cdsapi>=0.6.0",
+    "clinical-trials-gov>=2.0.0",
+    "pubmed-parser>=0.3.0",
+    "biorxiv-retriever>=1.0.0",
+    
+    # Medical NLP
+    "scispacy>=0.5.0",
+    "medspacy>=0.2.0",
+    "clinspacy>=0.3.0",
+    "negspacy>=1.0.0",
+]
+
+gpu = [
+    "cupy-cuda12x>=12.0.0",
+    "nvidia-ml-py>=12.535.0",
+    "pynvml>=11.5.0",
+    "nvidia-dali-cuda120>=1.30.0",
+]
+
+dev = [
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.5.0",
+    "pre-commit>=3.4.0",
+    "sphinx>=7.1.0",
+    "sphinx-rtd-theme>=1.3.0",
+    "jupyter>=1.0.0",
+    "ipykernel>=6.25.0",
+    "jupyterlab>=4.0.0",
+]
+
+benchmark = [
+    "memory-profiler>=0.61.0",
+    "line-profiler>=4.1.0",
+    "py-spy>=0.3.0",
+    "nvidia-ml-py>=12.535.0",
+    "psutil>=5.9.0",
+]
+
+docs = [
+    "mkdocs>=1.5.0",
+    "mkdocs-material>=9.4.0",
+    "mkdocstrings[python]>=0.23.0",
+    "mkdocs-jupyter>=0.24.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/llamasearchai/Open3DR"
+Documentation = "https://docs.llamasearch.ai/open3dr"
+Repository = "https://github.com/llamasearchai/Open3DR.git"
+Issues = "https://github.com/llamasearchai/Open3DR/issues"
+"Support" = "mailto:nikjois@llamasearch.ai"
+"LlamaSearch AI" = "https://llamasearch.ai"
+
+[project.scripts]
+open3dreconstruction = "open3d.cli:main"
+open3d-diagnose = "open3d.diagnostics.cli:main"
+open3d-reconstruct = "open3d.reconstruction.cli:main"
+open3d-research = "open3d.research.cli:main"
+open3d-api = "open3d.api.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["open3d*"]
+exclude = ["tests*", "docs*", "examples*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py39', 'py310', 'py311']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+  | medical_data
+  | patient_data
+)/
+'''
+
+[tool.isort]
+profile = "black"
+multi_line_output = 3
+line_length = 88
+known_first_party = ["open3d"]
+known_third_party = ["pydicom", "nibabel", "monai", "rdkit"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+# Medical data type stubs
+[[tool.mypy.overrides]]
+module = [
+    "pydicom.*",
+    "nibabel.*",
+    "monai.*",
+    "rdkit.*",
+    "openmm.*",
+    "mdtraj.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+minversion = "7.0"
+addopts = [
+    "--strict-markers",
+    "--strict-config",
+    "--cov=open3d",
+    "--cov-report=term-missing",
+    "--cov-report=html",
+    "--cov-report=xml",
+]
+testpaths = ["tests"]
+python_files = ["test_*.py", "*_test.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "gpu: marks tests that require GPU",
+    "integration: marks tests as integration tests",
+    "unit: marks tests as unit tests",
+    "medical: marks tests for medical functionality",
+    "clinical: marks tests for clinical validation",
+    "hipaa: marks tests for HIPAA compliance",
+    "fda: marks tests for FDA validation",
+]
+
+[tool.coverage.run]
+source = ["open3d"]
+omit = [
+    "*/tests/*",
+    "*/test_*",
+    "*/__init__.py",
+    "*/cli.py",
+    "*/patient_data/*",
+    "*/medical_data/*",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "class .*\\bProtocol\\):",
+    "@(abc\\.)?abstractmethod",
+    "# Medical data privacy protection",
+    "# HIPAA compliance requirement",
+]
+
+# Medical-specific configuration
+[tool.medical]
+hipaa_compliance = true
+fda_validation = true
+clinical_validation = true
+data_encryption = "AES-256"
+audit_logging = true 

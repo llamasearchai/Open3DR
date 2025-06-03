@@ -1,0 +1,76 @@
+# Core scientific computing
+numpy>=1.21.0
+scipy>=1.7.0
+pandas>=1.3.0
+
+# Computer vision and ML
+torch>=2.0.0
+torchvision>=0.15.0
+pytorch-lightning>=2.0.0
+opencv-python>=4.5.0
+scikit-image>=0.19.0
+scikit-learn>=1.0.0
+albumentations>=1.3.0
+
+# 3D processing
+open3d>=0.17.0
+trimesh>=3.15.0
+vtk>=9.2.0
+pyvista>=0.37.0
+
+# Neural rendering (simplified versions for compatibility)
+tcnn>=0.1.0
+
+# Web framework and API
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.0.0
+httpx>=0.25.0
+websockets>=11.0.0
+
+# OpenAI integration
+openai>=1.3.0
+langchain>=0.0.340
+langchain-openai>=0.0.2
+
+# Async and concurrency
+aiofiles>=23.0.0
+celery>=5.3.0
+redis>=5.0.0
+
+# Visualization and plotting
+matplotlib>=3.5.0
+plotly>=5.15.0
+streamlit>=1.28.0
+
+# Configuration and utilities
+hydra-core>=1.3.0
+omegaconf>=2.3.0
+typer>=0.9.0
+rich>=13.0.0
+tqdm>=4.64.0
+loguru>=0.7.0
+
+# Testing and validation
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+pytest-cov>=4.0.0
+pytest-mock>=3.10.0
+
+# Performance and optimization
+numba>=0.57.0
+onnx>=1.14.0
+
+# Data handling
+h5py>=3.7.0
+zarr>=2.12.0
+
+# Sensor simulation
+pyproj>=3.4.0
+geopy>=2.3.0
+shapely>=2.0.0
+
+# Networking and communication
+paho-mqtt>=1.6.0
+grpcio>=1.59.0
+protobuf>=4.24.0 
